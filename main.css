@@ -14,18 +14,12 @@ body {
 
 main {
   display: grid;
-  grid-template: auto / 1fr;
-  grid-template-area:
-    ". t t ."
-    ". b b ."
-    ". b b ."
-    ". . . .";
   align-items: center;
   justify-items: center;
 }
 
 h1 {
-  grid-area: "t";
+  padding: 20px;
   color: white;
   font-size: 5rem;
   text-align: center;
@@ -33,7 +27,6 @@ h1 {
 }
 
 section {
-  grid-area: "c";
   background-color: white;
   border-radius: 2em;
   padding: 2em;
@@ -43,16 +36,15 @@ section {
 }
 
 span {
-  height: 10vh;
+  height: 5em;
 }
 
-@media only screen and (max-width: 1110px) {
+@media only screen and (max-width: 600px) {
   section {
-    font-size: 2rem;
+    font-size: 1.5em;
   }
-}
-@media only screen and (max-width: 800px) {
-  section {
-    font-size: 1.2em;
+  h1 {
+    font-size: 4rem;
+    border: none;
   }
 }
