@@ -1,13 +1,10 @@
 :root {
   --orange: #ffac81;
   --red: #ff928b;
-  --peach: #fec3a6;
-  --yellow: #efe9ae;
-  --green: #cdeac0;
 }
 
 body {
-  background: var(--orange);
+  background: var(--red);
   box-sizing: border-box;
   font-family: "Montserrat";
 }
@@ -41,10 +38,12 @@ span {
 
 @media only screen and (max-width: 600px) {
   section {
-    font-size: 1.5em;
+    font-size: 1em;
+    max-width: 60vw;
+    margin-top: 10%;
   }
   h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     border: none;
   }
 }
