@@ -1,0 +1,88 @@
+:root {
+	--primary: #ddd;
+}
+
+* {
+	/* border: tomato 0.1px solid; */
+}
+
+.page-container {
+	display: grid;
+	grid-template-columns: 15rem 1fr;
+	height: 100%;
+}
+
+.menu {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	border-right: black solid 2px;
+}
+
+.menu__header {
+	padding: 0.4rem 2rem;
+}
+.menu__header--subheader {
+	font-size: 0.6em;
+	color: grey;
+}
+.menu__header--subheader::before {
+	content: "\A";
+	white-space: pre;
+}
+.menu__header > hr {
+	width: 4rem;
+}
+
+.menu__toggle {
+	display: none;
+}
+.menu__list {
+	list-style-type: none;
+}
+.menu__item {
+	/* margin-top: 1.5rem; */
+	padding: 0.7rem;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+}
+.menu__item:hover {
+	background-color: tomato;
+	color: white;
+}
+
+.first-fold {
+	position: relative;
+}
+.first-fold__image {
+	width: 100%;
+	height: auto;
+}
+.first-fold__title {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+}
+
+@media only screen and (max-width: 900px) {
+	.menu {
+		position: initial;
+		height: initial;
+		grid-column: span 2;
+		border: none;
+	}
+	.menu__header {
+		display: none;
+	}
+	.menu__list {
+		display: none;
+	}
+	.menu__toggle {
+		display: block;
+		margin: 1rem 1rem 1rem auto;
+		transition: all 0.4s ease-in-out;
+	}
+	.menu__list--open {
+		display: block;
+	}
+}
