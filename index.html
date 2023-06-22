@@ -1,80 +1,132 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Ta chegando!</title>
-    <style>
-      body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f5f5f5;
-        text-align: center;
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ff6666;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .header {
+      background-color: #ff6666;
+      padding: 20px;
+    }
+
+    .header h1 {
+      font-size: 2em;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .subheader {
+      margin: 20px 0;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    .footer {
+        /* position: absolute; */
+        bottom: 0px;
+        color: #ffffff8e;
+        font-size: 1em;
+    }
+
+    .gif-container {
+      margin: 20px auto;
+      max-width: 100%;
+    }
+
+    .sprinkles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+    }
+
+    .sprinkle {
+      position: absolute;
+      width: 6px;
+      height: 12px;
+      background-color: transparent;
+      border-radius: 2px;
+      opacity: 0.8;
+      animation: sprinkle-fall linear infinite;
+      transform: rotate(0);
+    }
+
+    @keyframes sprinkle-fall {
+      0% {
+        transform: translateY(-100%) rotate(0);
       }
-
-      h1 {
-        font-size: 60px;
-        font-weight: bold;
-        color: #0a2a5e;
-        margin-top: 50px;
+      100% {
+        transform: translateY(100vh) rotate(720deg);
       }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Feliz aniversário Buuui!</h1>
+  </div>
 
-      img {
-        max-width: 100%;
-        height: auto;
-        margin-top: 50px;
+  <div class="gif-container">
+    <img src="https://media.giphy.com/media/YbHgxsgUUcXZfd3GXt/giphy.gif" alt="The Office GIF">
+  </div>
+
+  <div class="subheader">
+    Te desejo muitos docinhos, whey e creatina &#x2764;
+  </div>
+
+  <div class="sprinkles">
+    <!-- Generate sprinkle elements dynamically using JavaScript -->
+  </div>
+
+  <div class="footer">
+    <p>ps. Ainda quero que mande uma descrição do seu trampo</p>
+  </div>
+
+  <script>
+    function createSprinkles() {
+      const sprinklesContainer = document.querySelector('.sprinkles');
+      const sprinkleCount = 300;
+
+      for (let i = 0; i < sprinkleCount; i++) {
+        const sprinkle = document.createElement('div');
+        sprinkle.className = 'sprinkle';
+        sprinkle.style.left = `${Math.random() * 100}%`;
+        sprinkle.style.animationDuration = `${Math.random() * 3 + 1}s`;
+        sprinkle.style.animationDelay = `${Math.random() * 3}s`;
+        sprinkle.style.backgroundColor = getRandomColor();
+        sprinkle.style.transform = `rotate(${getRandomRotation()}deg)`;
+        sprinklesContainer.appendChild(sprinkle);
       }
+    }
 
-      p {
-        font-size: 40px;
-        font-weight: bold;
-        color: #0a2a5e;
-        margin-top: 50px;
-      }
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+color += letters[Math.floor(Math.random() * 16)];
+}
+return color;
+}
 
-      @media only screen and (max-width: 768px) {
-        h1 {
-          font-size: 40px;
-        }
+function getRandomRotation() {
+return Math.random() < 0.5 ? Math.random() * 360 : -Math.random() * 360;
+}
 
-        p {
-          font-size: 30px;
-        }
-      }
-    </style>
-  </head>
+createSprinkles();
+</script>
 
-  <body>
-    <h1>O dia ta chegando!!!</h1>
-    <img src="https://media0.giphy.com/media/l0amJzVHIAfl7jMDos/giphy.gif?cid=ecf05e47zeq7fh15oan6azd7e31mbq9qtuoeq00117o3sxlv&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Michael Scott dancing">
-    <p id="countdown"></p>
-
-    <script>
-      // set the date you want the countdown to end
-      const countdownDate = new Date('2023-05-13T17:30:00').getTime();
-
-      // update the countdown every second
-      const countdown = setInterval(function() {
-        // get today's date and time
-        const now = new Date().getTime();
-
-        // calculate the time remaining until the countdown date
-        const timeRemaining = countdownDate - now;
-
-        // calculate days, hours, minutes, and seconds remaining
-        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-        // display the countdown
-        const countdownElement = document.getElementById('countdown');
-        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-        // check if the countdown has ended
-        if (timeRemaining < 0) {
-          clearInterval(countdown);
-          countdownElement.innerHTML = 'The countdown has ended!';
-        }
-      }, 1000);
-    </script>
-  </body>
+</body>
 </html>
