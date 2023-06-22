@@ -10,8 +10,9 @@
       font-family: Arial, sans-serif;
       text-align: center;
       background-color: #ff6666;
-      overflow: hidden;
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .header {
@@ -31,9 +32,15 @@
       color: #ffffff;
     }
 
+    .heart{
+        color: rgb(142, 37, 163);
+        font-size: 2em;
+    }
+
     .footer {
         /* position: absolute; */
-        bottom: 0px;
+        /* bottom: 0px; */
+        /* left: 0px; */
         color: #ffffff8e;
         font-size: 1em;
     }
@@ -80,11 +87,11 @@
   </div>
 
   <div class="gif-container">
-    <img src="https://media.giphy.com/media/YbHgxsgUUcXZfd3GXt/giphy.gif" alt="The Office GIF">
+    <img src="https://media3.giphy.com/media/DhstvI3zZ598Nb1rFf/giphy.gif" alt="The Office GIF">
   </div>
 
   <div class="subheader">
-    Te desejo muitos docinhos, whey e creatina &#x2764;
+    Te desejo muitos docinhos, whey e Creatina <span class="heart"> &#x2764 </span>
   </div>
 
   <div class="sprinkles">
